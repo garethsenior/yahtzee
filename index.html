@@ -1,0 +1,212 @@
+<!doctype html>
+<head>
+	<title>Yahtzee!</title>
+	<script src="ytz.js"></script>
+	<script>
+	window.addEventListener('load', function init() {
+		console.log("poop");
+	});
+
+	var ytz_ui = function() {
+		var ui = {
+			init: function() {
+				return this;
+			},
+			roll_dice: function() {
+				tumble = 0;
+				while (tumble < 20) {
+					console.log(tumble)
+					window.setTimeout(function () {
+						var i = 1;
+						while (i < 7) {
+							var rndNum= "d" + Math.ceil(Math.random() * 6);
+							console.log(i, rndNum)
+							document.getElementById('die' + i).className = rndNum;
+							i = i+1;
+						};
+					}, 500 * tumble);
+					tumble = tumble + 1;
+				}
+			}
+		}
+		return ui.init();
+	}
+
+	</script>
+</head>
+<style>
+#dice > div {
+	width:14%;
+	height:0;
+	padding-bottom:14%;
+	border-radius:10%;
+	color:#fff;
+	background-color:#e00;
+	margin-right:1%;
+	display:inline-block;
+	position:relative;
+}
+#dice > div > div {
+	width:20%;
+	height:20%;
+	border-radius:50%;
+	position:absolute;
+	background-color:#fff;
+	display:none;
+}
+#dice .s1 {
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+#dice .s2 {
+	/* top left */
+	top:10%;
+	left:10%;
+}
+#dice .s3 {
+	/* center left */
+	top:50%;
+	transform: translateY(-50%);
+	left: 10%;
+}
+#dice .s4 {
+	/* bottom left */
+	bottom:10%;
+	left:10%;
+}
+#dice .s5 {
+	/* top right */
+	top:10%;
+	right:10%;
+}
+#dice .s6 {
+	/* center right */
+	top:50%;
+	transform: translateY(-50%);
+	right: 10%;
+}
+#dice .s7 {
+	/* bottom right */
+	bottom:10%;
+	right:10%;
+}
+
+
+
+#dice .d1 .s1 {
+	display:block;
+}
+#dice .d2 .s2,
+#dice .d2 .s7 {
+	display:block;
+}
+#dice .d3 .s1,
+#dice .d3 .s2,
+#dice .d3 .s7 {
+	display:block;
+}
+#dice .d4 .s2,
+#dice .d4 .s4,
+#dice .d4 .s5,
+#dice .d4 .s7 {
+	display:block;
+}
+#dice .d5 .s1,
+#dice .d5 .s2,
+#dice .d5 .s4,
+#dice .d5 .s5,
+#dice .d5 .s7 {
+	display:block;
+}
+#dice .d6 .s2,
+#dice .d6 .s3,
+#dice .d6 .s4,
+#dice .d6 .s5,
+#dice .d6 .s6,
+#dice .d6 .s7 {
+	display:block;
+}
+</style>
+<body>
+
+<div id="game">
+
+	<div id="dice">
+
+		<div id="die1" class="d1">
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+			<div class="s6"></div>
+			<div class="s7"></div>
+		</div>
+		<div id="die2" class="d2">
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+			<div class="s6"></div>
+			<div class="s7"></div>
+		</div>
+		<div id="die3" class="d3">
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+			<div class="s6"></div>
+			<div class="s7"></div>
+		</div>		
+		<div id="die4" class="d4">
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+			<div class="s6"></div>
+			<div class="s7"></div>
+		</div>
+		<div id="die5" class="d5">
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+			<div class="s6"></div>
+			<div class="s7"></div>
+		</div>
+		<div id="die6" class="d6">
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+			<div class="s6"></div>
+			<div class="s7"></div>
+		</div>
+
+	</div>
+
+	<div id="scores">
+	<table id="score_simple" cellspacing="0" border="1">
+		<thead>
+			<tr>
+				<th scope="col">Description</th>
+				<th scope="col">Score</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+	</div>
+</div>
+
+
+
+</body>
+</html>
